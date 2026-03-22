@@ -1,0 +1,195 @@
+/* === Lessons specific styles === */
+
+/* Lesson card completed state */
+.lesson-card.completed {
+    border-color: var(--success);
+    position: relative;
+}
+
+.lesson-card.completed::after {
+    content: '✓';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    background: var(--success);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Song card styles */
+.song-card .song-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.song-card .song-key {
+    font-size: 0.8rem;
+    color: var(--accent-light);
+    font-weight: 500;
+}
+
+/* Waiting animation for next note */
+.seq-note.current.waiting {
+    animation: waitingPulse 1s infinite;
+}
+
+@keyframes waitingPulse {
+    0%, 100% {
+        box-shadow: 0 0 16px rgba(108, 92, 231, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 24px rgba(108, 92, 231, 0.6);
+    }
+}
+
+/* Note sequence scroll behavior */
+#sheet-display {
+    scroll-behavior: smooth;
+}
+
+/* Finger number display */
+.finger-number {
+    position: absolute;
+    top: -8px;
+    right: -4px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 700;
+}
+
+/* Lesson type badges */
+.lesson-type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    background: rgba(108, 92, 231, 0.15);
+    color: var(--accent-light);
+    margin-top: 8px;
+}
+
+/* Rest note in sequence */
+.seq-note.rest {
+    background: transparent;
+    border-style: dashed;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Chord display */
+.chord-notes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.75rem;
+    gap: 1px;
+}
+
+/* Tempo indicator */
+.tempo-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    background: var(--bg-primary);
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+}
+
+.tempo-indicator .bpm {
+    color: var(--accent-light);
+    font-weight: 600;
+}
+
+/* Practice stats in completion */
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+}
+
+.stat-value {
+    font-weight: 600;
+}
+
+.stat-value.good {
+    color: var(--success);
+}
+
+.stat-value.bad {
+    color: var(--error);
+}
+
+/* Hand position guide */
+.hand-guide {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin: 12px 0;
+    padding: 12px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+}
+
+.finger-guide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 48px;
+}
+
+.finger-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.finger-circle.active-finger {
+    border-color: var(--accent);
+    background: rgba(108, 92, 231, 0.2);
+    color: var(--accent-light);
+}
+
+.finger-name {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+}
