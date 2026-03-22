@@ -50,15 +50,13 @@ class PianoUI {
 
         const whiteKeyWidth = 100 / totalWhiteKeys; // percentage
 
-        // Render white keys first
+        // Render white keys first (flex: 1 handles sizing/positioning)
         let whiteIndex = 0;
         for (let octave = this.startOctave; octave <= this.endOctave; octave++) {
             for (const note of whiteNotes) {
                 if (octave === this.endOctave && note !== 'C') continue;
 
                 const key = this.createKey(note, octave, 'white');
-                key.style.width = whiteKeyWidth + '%';
-                key.style.left = (whiteIndex * whiteKeyWidth) + '%';
                 this.container.appendChild(key);
                 this.keys[note + octave] = key;
                 whiteIndex++;
